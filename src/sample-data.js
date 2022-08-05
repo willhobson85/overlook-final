@@ -1,4 +1,4 @@
-const userSample = [
+const customerSample = [
         {
             "id": 1,
             "name": "Leatha Ullrich"
@@ -108,4 +108,4 @@ const bookingSample = [
         }
     ]
 
-export {userSample, roomSample, bookingSample}
+export {customerSample, roomSample, bookingSample}
