@@ -31,4 +31,6 @@ describe("Hotel", () => {
         expect(hotel1).to.be.an.instanceOf(Hotel);
         expect(hotel2).to.be.an.instanceOf(Hotel);
     });
+
+    //show customer's history
 })

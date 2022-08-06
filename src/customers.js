@@ -1,3 +1,5 @@
+import bookings from "../../overlook-api/data/bookings";
+
 class Customers {
     constructor(id, name) {
         this.id = id;
@@ -7,7 +9,7 @@ class Customers {
     }
 
     findBookings(previousVisits) {
-        this.previousStays = previousVisits;
+        previousStays = bookingsArray.filter(customer.id === bookings.userID)
     }
 
     totalAmountSpent() {

@@ -7,6 +7,14 @@ class Rooms {
         this.numBeds = numBeds;
         this.costPerNight = costPerNight
     }
+
+    filterRoomByType(type) {
+        let filteredRooms = []
+        filteredRooms.push(roomArray.filter(Rooms.type === [type]))
+    }
+
+    
+
 }
 
 export default Rooms;
