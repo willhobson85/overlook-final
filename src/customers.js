@@ -3,11 +3,19 @@ class Customers {
         this.id = id;
         this.name = name;
         this.totalSpent = 0;
-        this.pastBookings;
+        this.previousStays;
+        console.log(this.previousStays);
     }
 
-    findPastBookings() {
-        
+    findBookings(previousVisits) {
+        this.previousStays = previousVisits;
+    }
+
+    totalAmountSpent() {
+        this.totalSpent = this.previousStays.reduce((acc, stay) => {
+        acc += stay.cost;
+        return acc
+        }, 0)
     }
 }
 

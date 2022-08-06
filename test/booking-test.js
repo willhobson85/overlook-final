@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import Hotel from "../src/hotel"
-import { hotelSample } from "../src/sample-data"
+import Booking from "../src/booking"
+import { bookingSample } from "../src/sample-data"
 
 let hotel1
 let hotel2 
@@ -8,13 +8,13 @@ let hotel2
 describe("Bookings", () => {
 
     beforeEach( () => {
-        hotel1 = new Hotel(hotelSample[0].id, hotelSample[0].userID, hotelSample[0].date, hotelSample[0].roomNumber);
-        hotel2 = new Hotel(hotelSample[1].id, hotelSample[1].userID, hotelSample[1].date, hotelSample[1].roomNumber)
+        hotel1 = new Booking(bookingSample[0].id, bookingSample[0].userID, bookingSample[0].date, bookingSample[0].roomNumber);
+        hotel2 = new Booking(bookingSample[1].id, bookingSample[1].userID, bookingSample[1].date, bookingSample[1].roomNumber)
     })
 
     it('should be an instancce of Bookings', () => {
-        expect(hotel1).to.be.an.instanceOf(Bookings)
-        expect(hotel2).to.be.an.instanceOf(Bookings)
+        expect(hotel1).to.be.an.instanceOf(Booking)
+        expect(hotel2).to.be.an.instanceOf(Booking)
     })
 
     it('should have an id', () => {
@@ -36,6 +36,5 @@ describe("Bookings", () => {
         expect(hotel1.roomNumber).to.equal(12);
         expect(hotel2.roomNumber).to.equal(22);
     })
-
     
 })
