@@ -4,7 +4,6 @@ class Customers {
         this.name = name;
         this.totalSpent = 0;
         this.previousStays;
-        console.log(this.previousStays);
     }
 
     findBookings(previousVisits) {

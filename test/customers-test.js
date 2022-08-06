@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Customers from "../src/customers"
-import Hotel from '../src/booking';
-import { customerSample, hotelSample } from "../src/sample-data"
+import Booking from '../src/booking';
+import { customerSample, bookingSample } from "../src/sample-data"
 
 let customer1
 let customer2
@@ -12,7 +12,7 @@ describe("Customers", () => {
     beforeEach(() => {
         customer1 = new Customers(customerSample[0].id, customerSample[0].name)
         customer2 = new Customers(customerSample[1].id, customerSample[1].name)
-        hotel = new Hotel(hotelSample)
+        hotel = new Booking(bookingSample)
     })
 
     it('should be an instance of Customer', () => {
