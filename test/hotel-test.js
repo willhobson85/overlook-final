@@ -23,14 +23,46 @@ describe("Hotel", () => {
         customer2 = new Customers(customerSample[1].id, customerSample[1].name)
         booking1 = new Booking(bookingSample[0].id, bookingSample[0].userID, bookingSample[0].date, bookingSample[0].roomNumber);
         booking2 = new Booking(bookingSample[1].id, bookingSample[1].userID, bookingSample[1].date, bookingSample[1].roomNumber)
-        hotel1 = new Hotel(room1, booking1, customer1);
-        hotel2 = new Hotel(room2, booking2, customer2);
+        hotel1 = new Hotel(roomSample, bookingSample);
+        //hotel2 = new Hotel(room2, booking2, customer2);
     })
 
     it('should be an instance of Hotel', () => {
         expect(hotel1).to.be.an.instanceOf(Hotel);
-        expect(hotel2).to.be.an.instanceOf(Hotel);
+        //hotel1.findAvailableRooms("2022/11/06");
     });
 
-    //show customer's history
+    it('should return available rooms', () => {
+        hotel1.findAvailableRooms("2022/11/06");
+        expect(hotel1.rooms).to.deep.equal(
+            [
+                {
+                  number: 1,
+                  roomType: 'residential suite',
+                  bidet: true,
+                  bedSize: 'queen',
+                  numBeds: 1,
+                  costPerNight: 358.4
+                },
+                {
+                  number: 8,
+                  roomType: 'junior suite',
+                  bidet: false,
+                  bedSize: 'king',
+                  numBeds: 1,
+                  costPerNight: 261.26
+                },
+                {
+                  number: 12,
+                  roomType: 'single room',
+                  bidet: false,
+                  bedSize: 'twin',
+                  numBeds: 2,
+                  costPerNight: 172.09
+                }
+              ]
+        )
+    })
+
+    
 })
