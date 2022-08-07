@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Customers from "../src/customers"
 import Booking from '../src/booking';
-import { customerSample, bookingSample } from "../src/sample-data"
+import { customerSample, bookingSample, roomSample } from "../src/sample-data"
 
 let customer1
 let customer2
@@ -30,4 +30,45 @@ describe("Customers", () => {
         expect(customer2.name).to.equal("Kelsie Rath");
     })
 
+    it('should show bookings', () => {
+        customer1.findBookings(bookingSample)
+        expect(customer1.allStays).to.deep.equal([{
+            "id": "5fwrgu4i7k55hl6t8",
+            "userID": 1,
+            "date": "2022/02/05",
+            "roomNumber": 12,
+
+        },
+        {
+            "id": "5fwrgu4i7k55hl727",
+            "userID": 1,
+            "date": "2022/11/06",
+            "roomNumber": 22,
+        
+        }])
+        customer2.findBookings(bookingSample)
+        expect(customer2.allStays).to.deep.equal([
+            {
+                "id": "5fwrgu4i7k55hl72m",
+                "userID": 21,
+                "date": "2022/01/09",
+                "roomNumber": 13,
+            
+            },
+            {
+                "id": "5fwrgu4i7k55hl73z",
+                "userID": 21,
+                "date": "2022/01/31",
+                "roomNumber": 10,
+            
+            }
+        ])
+    })
+
+    it('should have a total amount spent', () => {
+        customer1.findBookings(bookingSample);
+        customer1.findCustomerRooms(roomSample)
+        customer1.totalAmountSpent()
+        expect(customer1.totalSpent).to.equal(522.4)
+    })
 })

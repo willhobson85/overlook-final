@@ -1,19 +1,34 @@
-import bookings from "../../overlook-api/data/bookings";
-
 class Customers {
     constructor(id, name) {
         this.id = id;
         this.name = name;
         this.totalSpent = 0;
-        this.previousStays;
+        this.allStays = [];
+        this.roomsUsed = []
     }
 
-    findBookings(previousVisits) {
-        previousStays = bookingsArray.filter(customer.id === bookings.userID)
+    findBookings(bookingsArray) {
+        this.allStays = bookingsArray.filter(bookings => this.id === bookings.userID)
     }
+
+    findCustomerRooms(roomsArray) {
+        this.allStays.forEach(stay => {
+            roomsArray.forEach(room => {
+                if (stay.roomNumber === room.number) {
+                    this.roomsUsed.push({
+                        roomNumber: stay.roomNumber,
+                        cost: room.costPerNight,
+                        date: stay.date,
+                        type: room.roomType
+                    })
+                }
+            })
+        })
+    }
+
 
     totalAmountSpent() {
-        this.totalSpent = this.previousStays.reduce((acc, stay) => {
+        this.totalSpent = this.roomsUsed.reduce((acc, stay) => {
         acc += stay.cost;
         return acc
         }, 0)
