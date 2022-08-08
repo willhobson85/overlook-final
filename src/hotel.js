@@ -7,8 +7,6 @@ class Hotel {
 
     findAvailableRooms(date) {
         let emptyRooms = this.rooms;
-        //1 check all bookings for date = filter for date match
-        //2 use rooms array to find out what isn't booked and show to user, with cost, type, etc
         let bookedRooms = this.bookings.filter(bookings => bookings.date === date) 
         this.rooms.forEach(room => {
             bookedRooms.forEach(booking => {
