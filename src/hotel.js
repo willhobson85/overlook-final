@@ -1,8 +1,8 @@
 class Hotel {
-    constructor(rooms, bookings) {
+    constructor(rooms, bookings, customers) {
         this.rooms = rooms;
         this.bookings = bookings;
-        //this.customer = customer;
+        this.customers = customers;
     }
 
     findAvailableRooms(date) {
