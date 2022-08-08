@@ -11,6 +11,14 @@ class Customers {
         this.allStays = bookingsArray.filter(bookings => this.id === bookings.userID)
     }
 
+    bookRoom(availableRoom) {
+        if (!this.allStays.includes(availableRoom)) {
+            this.allStays.push(availableRoom);
+        } else {
+            return alert("You have already booked this room!")
+        }
+    }
+
     findCustomerRooms(roomsArray) {
         this.allStays.forEach(stay => {
             roomsArray.forEach(room => {
