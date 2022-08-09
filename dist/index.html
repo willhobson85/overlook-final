@@ -28,21 +28,33 @@
     </section>
     <section class="main-page">
         <section class="filter-menu">
+            <div id="filter-input-wrapper">
+                <h2>SELECT ROOM TYPE</h2>
+                <div><input type="checkbox" class="checkbox" id="single-room">
+                  <label for="single-room">Single Room</label></div>
+                <div><input type="checkbox" class="checkbox" id="junior-suite">
+                <label for="junior-suite">Junior Suite</label></div>
+                <div><input type="checkbox" class="checkbox" id="suite">
+                <label for="suite">Suite</label></div>
+                <div><input type="checkbox" class="checkbox" id="residential-suite">
+                <label for="residential-suite">Residential Suite</label></div>
+                <button type="button" class="filter">Filter</button>
+            </div>
         </section>
         <section class="vacation-grid">
-            <section class="vacation-tile">
+            <!-- <section class="vacation-tile">
                 <img src="../src/images/hotel-room.jpeg" class="room-img"alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
                 <h3>Room Type</h3>
                 <h3>Bed Type</h3>
                 <h4>Room Price</h4>
-            </section>
+            </section> -->
         </section>
     </section>
     <section class="bookings-page hidden">
         <section class="filter-menu-bookings hidden">
         </section>
         <section class="vacation-grid-bookings hidden">
-            <section class="vacation-tile">
+            <section class="vacation-tile hidden">
                 <img src="../src/images/hotel-room.jpeg" class="room-img"alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
                 <h3>Room Type</h3>
                 <h3>date</h3>
@@ -51,7 +63,7 @@
         </section>
     </section>
   </body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
