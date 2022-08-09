@@ -8,36 +8,28 @@ import Rooms from "../src/rooms"
 import Booking from "../src/booking"
 import Customers from "../src/customers"
 import Hotel from "../src/hotel"
+import './images/hotel-room.png'
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+// import './images/hotel-room.jpeg'
 
 // Global variables
 let hotel;
-let customer; 
+let currentCustomer; 
+let room;
 let allRooms = [];
-let booking;
+let allBookings = [];
+let userBookings = [];
+let checked = [];
 
-// Fetch Calls
-function initializeData() {
-    Promise.all([customersAPIData, roomsAPIData, bookingsAPIData]).then(
-      ([customersAPIData, roomsAPIData, bookingsAPIData]) => {
-          hotel = new Hotel(roomsAPIData.rooms, bookingsAPIData.bookings, customersAPIData.customers);
-          allRooms = new Rooms(roomsAPIData.rooms);
-          let randomCustomer = customersAPIData.customers[Math.floor(Math.random() * customersAPIData.customers.length)];
-          customer = new Customers(randomCustomer);
-          console.log(randomCustomer)
-      }
-    );
-  }
 
-console.log("all rooms", hotel);
 
 
 // Selectors
 const allRoomsBtn = document.querySelector(".all-rooms-button")
 const yourBookingsBtn = document.querySelector(".your-bookings-button")
 const vacationTile = document.querySelector(".vacation-tile")
+const vacationGrid = document.querySelector(".vacation-grid")
 const bookedVacationTile = document.querySelector(".vacation-tile-booked")
 
 // Event Listeners
@@ -48,12 +40,15 @@ yourBookingsBtn.addEventListener("click", showYourBookings);
 //Code
 
 function showAllRooms() {
+    vacationGrid.innerHTML = ``;
     allRooms.forEach((room) => {
-    vacationTile.innerHTML += `
-    <img src="../src/images/hotel-room.jpeg" class="room-img"alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
-    <h3>${allRooms.roomType}</h3>
-    <h3>${allRooms.bedType}</h3>
-    <h4>${allRooms.costPerNight}</h4>
+    vacationGrid.innerHTML += `
+    <section class="vacation-tile">
+    <img src="./images/hotel-room.png" class="room-img" alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
+    <h3>${room.roomType}</h3>
+    <h3>${room.bedSize}</h3>
+    <h4>${room.costPerNight}</h4>
+    </section>
     `
     })
 }
@@ -68,10 +63,12 @@ function showYourBookings() {
             b.date - a.date
         })
         bookedVacationTile.innerHTML += `
-            <img src="../src/images/hotel-room.jpeg" class="room-img"alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
-            <h3>${allRooms.roomType}</h3>
-            <h3>${allRooms.bedType}</h3>
-            <h4>${allRooms.costPerNight}</h4>
+        <section class="vacation-tile">
+        <img src="./images/hotel-room.png" class="room-img" alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
+        <h3>${room.roomType}</h3>
+        <h3>${room.bedSize}</h3>
+        <h4>${room.costPerNight}</h4>
+        </section>
         `
     }
 }
@@ -87,20 +84,24 @@ function addBooking() {
 
 }
 
-function pushBooking(event) {
-    //need to create object here to push into array.
-    //{
-    //     id:
-    //     date: 
-    //     roomNumber:
-    // }
-    //need to push tile
-    // bookedVacationTile.innerHTML += `
-    //         <img src="../src/images/hotel-room.jpeg" class="room-img"alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
-    //         <h3>${allRooms.roomType}</h3>
-    //         <h3>${allRooms.bedType}</h3>
-    //         <h4>${allRooms.costPerNight}</h4>
-    //     `
-    customer.bookRoom(addToBooking)
+
+
+// Fetch Calls
+function initializeData() {
+    Promise.all([customersAPIData(), roomsAPIData(), bookingsAPIData()]).then(
+      (data) => {
+          hotel = new Hotel(data[1].rooms, data[2].bookings, data[0].customers);
+          allBookings = new Booking(data[2].bookings)
+          room = new Rooms(data[1].rooms[0]);
+          allRooms = hotel.rooms;
+          //   console.log("room", allRooms)
+          showAllRooms()
+          let randomCustomer = data[0].customers[Math.floor(Math.random() * data[0].customers.length)];
+          currentCustomer = new Customers(randomCustomer.id, randomCustomer.name);
+          console.log("customer", currentCustomer)
+          console.log("all bookings", allBookings.id)
+          console.log("customer bookings", currentCustomer.findBookings(allBookings))
+        //   console.log("userBookings", userBookings);
+      });
 }
 
