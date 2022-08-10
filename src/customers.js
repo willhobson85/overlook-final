@@ -3,8 +3,8 @@ class Customers {
         this.id = id;
         this.name = name;
         this.totalSpent = 0;
-        this.allStays = []; //booking
-        this.roomsUsed = [] //rooms rented
+        this.allStays = []; //booked
+        this.roomsUsed = [] //room number, date, type, cost
     }
 
     findBookings(bookingsArray) {

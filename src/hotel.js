@@ -18,13 +18,6 @@ class Hotel {
             })
         })
         return emptyRooms
-        // put this in scripts  
-        //{
-        //         return "I'm sorry, this room is booked for this date"
-        //     } else {
-        //         return "This room is available"
-        //     }
-        // })
     }
 
 
