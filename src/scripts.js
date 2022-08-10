@@ -78,12 +78,15 @@ function showYourBookings(frank) {
 //after info from user, submit post
 
 function filterRoomType() {
- // This adds the id (suite, single, junior suite, etc) to an array to be used in find function.
     checked = [];
     checkboxes.forEach((checkedBox) => {
-        if (checkedBox.checked) checked.push(checkedBox.id)
+        if (checkedBox.checked) {
+            checked.push(checkedBox.id)
+        } else {
+            checked.slice(checked.id)
+        }
     });
-    // console.log(checked)
+    console.log(checked)
     return checked
 }
 
@@ -92,21 +95,24 @@ function findARoom(rooms) {
     let year = String(findDate.getFullYear());
     let month = String(findDate.getMonth()+1).padStart(2,'0');
     let day = String(findDate.getDate()+1).padStart(2,'0');
-    let bookSearch = [year.toString(), month, day]
+    let bookSearch = [year, month, day]
+    console.log("bookSearch", bookSearch)
     bookingDate = bookSearch.join("/")
+    console.log("book date", bookingDate);
     let freeRooms = []
-    let availableRooms = hotel.findAvailableRooms();
-    // console.log("99", availableRooms);
+    console.log(hotel);
+    let availableRooms = hotel.findAvailableRooms(bookingDate);
+    console.log("99", availableRooms);
     // console.log("checked", checked)
-    let checkedAvailable = availableRooms.forEach((style) => {
+    let checkedAvailable = checked.forEach((value) => {
         // console.log("style.roomType", style.roomType)
-        if (style.roomType === checked[0] || checked[1] || checked[2]) {
-        freeRooms.push(style)
+        if (style = availableRooms.roomType) {
+        freeRooms.push(value)
         // This is a spot where I am having trouble pushing to free rooms array
         } 
     })
     // console.log("freeRooms", freeRooms);
-    // if ((checked.length === 0) && (bookingDate !== "2022/08/10")) {
+    // if ((checked.length === 0) && (bookingDate !== "2022/01/11")) {
     //    vacationGrid.innerHTML = `<section class="vacation-tile"><h1 class="centered">Please pick a date and try again</h1><br><button type="button" class="error-button">ShowYourBookings</button></section>`
     // } else if (freeRooms = []) {
         //"We are so sorry, there are no available rooms for the selected date"
