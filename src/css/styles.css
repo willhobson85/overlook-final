@@ -28,6 +28,7 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  border: 0px;
 }
 
 .header {
@@ -47,6 +48,11 @@ body {
 .filter-menu {
   width: 20%;
   height: 100%;
+}
+
+.date-search {
+  display: flex;
+  flex-direction: column;
 }
 
 .vacation-grid {

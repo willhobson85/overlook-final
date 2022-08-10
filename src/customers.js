@@ -3,8 +3,8 @@ class Customers {
         this.id = id;
         this.name = name;
         this.totalSpent = 0;
-        this.allStays = [];
-        this.roomsUsed = []
+        this.allStays = []; //booking
+        this.roomsUsed = [] //rooms rented
     }
 
     findBookings(bookingsArray) {
@@ -40,6 +40,7 @@ class Customers {
         acc += stay.cost;
         return acc
         }, 0)
+        this.totalSpent = parseFloat(this.totalSpent.toFixed(2));
     }
 }
 

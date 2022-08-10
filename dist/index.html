@@ -14,13 +14,9 @@
             <h2>Where will you stay?</h2>
         </section>
         <section class="toggle-display">
-            <button type="button" class="all-rooms-button">ALL ROOMS</button>
             <button type="button" class="your-bookings-button">YOUR BOOKINGS</button>
         </section>
         <section class="user-info">
-            <div class="login">
-                <h3>Login</h3>
-            </div>
             <div class="dollars-spent">
                 <h3>Total spent: $0000</h3>
             </div>
@@ -38,7 +34,10 @@
                 <label for="suite">Suite</label></div>
                 <div><input type="checkbox" class="checkbox" id="residential-suite">
                 <label for="residential-suite">Residential Suite</label></div>
-                <button type="button" class="filter">Filter</button>
+                <div class="date-search"><input type="date" id="start" name="trip-start"
+                value="2022-08-10"
+                min="2022-08-10" max="2023-12-31"></div>
+                <button type="button" class="filter">Check Availability</button>
             </div>
         </section>
         <section class="vacation-grid">
