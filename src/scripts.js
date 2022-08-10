@@ -56,9 +56,9 @@ function showYourBookings(frank) {
         vacationGrid.innerHTML += `
         <section class="vacation-tile">
         <img src="./images/hotel-room.png" class="room-img" alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
-        <h3>${stay.date}</h3>
-        <h3>${stay.type}</h3>
-        <h4>${stay.cost}</h4>
+        <h3>Booked Date: ${stay.date}</h3>
+        <h3>Room Type: ${stay.type}</h3>
+        <h4>Cost: ${stay.cost}</h4>
         </section>
         `
         }
@@ -114,9 +114,9 @@ function findARoom(rooms) {
     //     vacationGrid.innerHTML += `
     //     <section class="vacation-tile">
     //     <img src="./images/hotel-room.png" class="room-img" alt="clean hotel room with a big bed, and open door overlooking a lake"></img>
-    //     <h3>${rooms.date}</h3>
-    //     <h3>${rooms.type}</h3>
-    //     <h4>${rooms.cost}</h4>
+    //     <h3>Booked Date: ${rooms.date}</h3>
+    //     <h3>Room Type: ${rooms.type}</h3>
+    //     <h4>Cost: ${rooms.cost}</h4>
     //     <button class="book-room">Book this room</button>
     //     </section>
     //     `
