@@ -18,4 +18,23 @@ const bookingsAPIData = () => {
   .catch((error) => console.log(error));
 }
 
-export { customersAPIData, roomsAPIData, bookingsAPIData };
+const savedBooking = (newStay) => {
+    let options = {
+        method: 'POST', 
+        headers: {
+            "Content-Type" : "application/json"
+        }, 
+        body: JSON.stringify({
+            "userID": newStay.id, 
+            "date": newStay.date, 
+            "roomNumber": newStay.roomNumber
+        })
+        
+    }
+    return fetch("http://localhost:3001/api/v1/bookings", options)
+    .then(response => response.json())
+    .catch(error => console.log('Error: ', error))
+}
+
+
+export { customersAPIData, roomsAPIData, bookingsAPIData, savedBooking};
