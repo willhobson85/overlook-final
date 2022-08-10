@@ -100,7 +100,10 @@ function initializeData() {
           currentCustomer = new Customers(randomCustomer.id, randomCustomer.name);
           console.log("customer", currentCustomer)
           console.log("all bookings", allBookings.id)
-          console.log("customer bookings", currentCustomer.findBookings(allBookings))
+          currentCustomer.findBookings(allBookings)
+        //   console.log("customer bookings", currentCustomer.findBookings(allBookings))
+        currentCustomer.totalAmountSpent()
+          console.log(currentCustomer.totalSpent)
         //   console.log("userBookings", userBookings);
       });
 }
