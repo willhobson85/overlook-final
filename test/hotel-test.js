@@ -29,7 +29,6 @@ describe("Hotel", () => {
 
     it('should be an instance of Hotel', () => {
         expect(hotel1).to.be.an.instanceOf(Hotel);
-        //hotel1.findAvailableRooms("2022/11/06");
     });
 
     it('should return available rooms', () => {
